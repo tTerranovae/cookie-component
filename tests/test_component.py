@@ -1,10 +1,11 @@
 from unittest.mock import patch
+
 from cookie_component import cookie_manager
 
 
 def test_cookie_manager():
-    cookie_name = 'test_cookie'
-    with patch('cookie_component.cookie_manager') as mock_cookie_manager:
+    cookie_name = "test_cookie"
+    with patch("cookie_component.cookie_manager") as mock_cookie_manager:
         mock_storage = {}
 
         def side_effect(name, action, value=None):

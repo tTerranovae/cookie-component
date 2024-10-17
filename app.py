@@ -1,4 +1,5 @@
 import streamlit as st
+
 from cookie_component import cookie_manager
 
 # Page layout
@@ -6,9 +7,11 @@ st.set_page_config(page_title="Cookie Manager", layout="centered")
 
 # Header and description
 st.title("✨Cookie Manager")
-st.write("""
+st.write(
+    """
  The Cookie Management Component provides a straightforward and efficient way to interact with browser cookies. This component allows developers to easily get or set cookies in the user's browser, facilitating the management of user preferences, session information, and other data that may need to persist across page refreshes or sessions.
-""")
+"""
+)
 
 # Retrieve cookie
 st.subheader("Retrieve a Cookie from the Browser")
@@ -36,7 +39,8 @@ with st.form("cookie_form"):
 
 # Example code
 st.subheader("Example Usage")
-st.code("""
+st.code(
+    """
 #! app.py
 import streamlit as st
 from cookie_component import cookie_manager
@@ -46,12 +50,16 @@ cookie_value = cookie_manager(<cookie_name>, 'get')
 
 # Set a cookie
 cookie_manager(<cookie_name>, 'set', <value>)
-""", language="python")
+""",
+    language="python",
+)
 
 # Component information
 st.subheader("Component Documentation")
-st.write("""
+st.write(
+    """
 1. Check `cookie_component/__init__.py` for the Python implementation.
 2. Review `cookie_component/index.js` for the JavaScript logic.
 3. Look at `cookie_component/streamlit-component-lib.js` for the integration between Streamlit and JavaScript.
-""")
+"""
+)

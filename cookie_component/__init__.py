@@ -1,5 +1,9 @@
 import streamlit.components.v1 as components
-_component_func = components.declare_component(f"cookie_comp", path="cookie_component",)
+
+_component_func = components.declare_component(
+    f"cookie_comp",
+    path="cookie_component",
+)
 
 
 def cookie_manager(name, action="get", value=None, days=1):
@@ -10,5 +14,7 @@ def cookie_manager(name, action="get", value=None, days=1):
     """
     if action not in ["get", "set"]:
         raise ValueError("Invalid action. Action must be 'get' or 'set'.")
-    value = _component_func(spec={"name": name, "action": action, "value": value, "days": days})
+    value = _component_func(
+        spec={"name": name, "action": action, "value": value, "days": days}
+    )
     return value
