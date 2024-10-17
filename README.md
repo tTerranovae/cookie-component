@@ -55,6 +55,9 @@ poetry add <package_name>
 poetry update
 poetry shell
 ```
-
+## Testing
+```python
+poetry run pytest tests
+```
 ## Contributing
 Feel free to submit issues or pull requests if you'd like to contribute to this component.
