@@ -14,6 +14,18 @@ st.write(
  The Cookie Management Component provides a straightforward and efficient way to interact with browser cookies. This component allows developers to easily get or set cookies in the user's browser, facilitating the management of user preferences, session information, and other data that may need to persist across page refreshes or sessions.
 """
 )
+# Set cookie form
+st.subheader("Set a Cookie in the Browser")
+with st.form("cookie_form"):
+    name = st.text_input("Cookie Name", placeholder="Enter the cookie name")
+    value = st.text_input("Cookie Value", placeholder="Enter the cookie value")
+    expires = st.number_input("Expires (days)", min_value=1, value=1)
+    submitted = st.form_submit_button("Set Cookie")
+    if not name or not value:
+        st.warning("Please enter a cookie name and value.")
+    if submitted and name and value:
+        cookie_manager(name, "set", value, expires)
+        st.success(f"Cookie *{name}* has been set with the value *{value}*. 🎉")
 
 # Retrieve cookie
 st.subheader("Retrieve a Cookie from the Browser")
@@ -28,18 +40,6 @@ with st.form("cookie_form_get"):
             else:
                 st.warning(f"Cookie *{name}* not found.")
 
-# Set cookie form
-st.subheader("Set a Cookie in the Browser")
-with st.form("cookie_form"):
-    name = st.text_input("Cookie Name", placeholder="Enter the cookie name")
-    value = st.text_input("Cookie Value", placeholder="Enter the cookie value")
-    expires = st.number_input("Expires (days)", min_value=1, value=1)
-    submitted = st.form_submit_button("Set Cookie")
-    if not name or not value:
-        st.warning("Please enter a cookie name and value.")
-    if submitted and name and value:
-        cookie_manager(name, "set", value, expires)
-        st.success(f"Cookie *{name}* has been set with the value *{value}*. 🎉")
 
 # Example code
 st.subheader("Example Usage")
