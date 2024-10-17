@@ -5,8 +5,10 @@ from cookie_component import cookie_manager
 st.set_page_config(page_title="Cookie Manager", layout="centered")
 
 # Header and description
-st.title("Cookie Manager")
-st.write("This component allows you to easily get or set a cookie in the browser.")
+st.title("✨Cookie Manager")
+st.write("""
+ The Cookie Management Component provides a straightforward and efficient way to interact with browser cookies. This component allows developers to easily get or set cookies in the user's browser, facilitating the management of user preferences, session information, and other data that may need to persist across page refreshes or sessions.
+""")
 
 # Retrieve cookie
 st.subheader("Retrieve a Cookie from the Browser")
