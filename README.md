@@ -21,7 +21,7 @@ This Streamlit component allows you to easily retrieve a cookie value from the b
 You can use the get_cookie function from the cookie_component module to retrieve the value of any cookie:
 ```python
 import streamlit as st
-from cookie_component import get_cookie
+from cookie_component import cookie_manager
 ```
 
 ## Specify the cookie name you want to retrieve
@@ -31,7 +31,7 @@ cookie_name = '_streamlit_xsrf'
 
 ## Display the cookie value in your Streamlit app
 ```python
-st.write(f"Cookie Value of {cookie_name}: {get_cookie(cookie_name)}")
+st.write(f"Cookie Value of {cookie_name}: {cookie_manager(cookie_name)}")
 ```
 ## Component Overview
 1. cookie_component/__init__.py: The Python interface to the cookie component.
