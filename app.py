@@ -7,17 +7,17 @@ st.set_page_config(page_title="Cookie Manager", layout="centered")
 # Header and description
 st.title("Cookie Manager")
 st.write("This component allows you to easily get or set a cookie in the browser.")
-cookie_name = '_streamlit_xsrf'
-cookie_value = cookie_manager(cookie_name, "get")
+
 # Retrieve cookie
 st.subheader("Retrieve a Cookie from the Browser")
 with st.form("cookie_form_get"):
-    name = st.text_input("Cookie Name", value=cookie_name, placeholder="Enter the cookie name")
+    name = st.text_input("Cookie Name", placeholder="Enter the cookie name")
+    cookie_value = cookie_manager(name, "get")
     if st.form_submit_button("Get Cookie"):
         if cookie_value:
-            st.success(f"Value of cookie *{cookie_name}*: {cookie_value} 🎉")
+            st.success(f"Value of cookie *{name}*: {cookie_value} 🎉")
         else:
-            st.warning(f"Cookie *{cookie_name}* not found.")
+            st.warning(f"Cookie *{name}* not found.")
 
 # Set cookie form
 st.subheader("Set a Cookie in the Browser")
