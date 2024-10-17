@@ -1,3 +1,5 @@
+from time import sleep
+
 import streamlit as st
 
 from cookie_component import cookie_manager
@@ -17,12 +19,14 @@ st.write(
 st.subheader("Retrieve a Cookie from the Browser")
 with st.form("cookie_form_get"):
     name = st.text_input("Cookie Name", placeholder="Enter the cookie name")
-    cookie_value = cookie_manager(name, "get")
     if st.form_submit_button("Get Cookie"):
-        if cookie_value:
-            st.success(f"Value of cookie *{name}*: {cookie_value} 🎉")
-        else:
-            st.warning(f"Cookie *{name}* not found.")
+        with st.spinner("Retrieving cookie..."):
+            cookie_value = cookie_manager(name, "get")
+            sleep(2)
+            if cookie_value:
+                st.success(f"Value of cookie *{name}*: {cookie_value} 🎉")
+            else:
+                st.warning(f"Cookie *{name}* not found.")
 
 # Set cookie form
 st.subheader("Set a Cookie in the Browser")
